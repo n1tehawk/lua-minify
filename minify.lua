@@ -151,7 +151,7 @@ local Digits = lookupify{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 local HexDigits = lookupify{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                             'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f'}
 
-local Symbols = lookupify{'+', '-', '*', '/', '^', '%', ',', '{', '}', '[', ']', '(', ')', ';', '#', '.', ':'}
+local Symbols = lookupify{'+', '-', '*', '/', '^', '%', ',', '{', '}', '[', ']', '(', ')', ';', '#', '.', ':', '|', '&'}
 
 local EqualSymbols = lookupify{'~', '=', '>', '<'}
 
@@ -170,7 +170,7 @@ local BinopSet = lookupify{
 	'+', '-', '*', '/', '%', '^', '#',
 	'..', '.', ':',
 	'>', '<', '<=', '>=', '~=', '==',
-	'and', 'or'
+	'and', 'or', '&', '|'
 }
 
 local GlobalRenameIgnore = lookupify{
@@ -192,7 +192,9 @@ local BinaryPriority = {
    ['>='] = {3, 3};
    ['<='] = {3, 3};
    ['and'] = {2, 2};
+   ['&'] = {2, 2};
    ['or'] = {1, 1};
+   ['|'] = {1, 1};
 }
 local UnaryPriority = 8
 
